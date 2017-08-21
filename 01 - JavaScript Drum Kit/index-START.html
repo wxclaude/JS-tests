@@ -70,7 +70,7 @@
         if (e.propertyName !== 'transform') return;
         e.target.classList.remove('playing');
     }
-    //监听按键，用于开始播放，加类
+    //监听按键，开始播放，加类
     window.addEventListener('keydown', playSound);
     //给所有key绑定transitionend事件，用于结束播放，去类
     const keys = document.querySelectorAll('.key');
