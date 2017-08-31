@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Scoped CSS Variables and JS</title>
+    <meta charset="UTF-8">
+    <title>Scoped CSS Variables and JS</title>
 </head>
 <body>
-  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+<h2>Update CSS Variables with <span class='hl'>JS</span></h2>
 
-  <div class="controls">
+<div class="controls">
     <label for="spacing">Spacing:</label>
     <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
 
@@ -16,36 +16,73 @@
 
     <label for="base">Base Color</label>
     <input id="base" type="color" name="base" value="#ffc600">
-  </div>
+</div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+<img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
-  <style>
+<style>
 
     /*
       misc styles, nothing to do with CSS variables
     */
+    :root {
+        --base: #ffc600;
+        --spacing: 10px;
+        --blur: 10px;
+    }
 
     body {
-      text-align: center;
-      background: #193549;
-      color: white;
-      font-family: 'helvetica neue', sans-serif;
-      font-weight: 100;
-      font-size: 50px;
+        text-align: center;
+        background: #193549;
+        color: white;
+        font-family: 'helvetica neue', sans-serif;
+        font-weight: 100;
+        font-size: 50px;
     }
 
     .controls {
-      margin-bottom: 50px;
+        margin-bottom: 50px;
     }
 
     input {
-      width:100px;
+        width: 100px;
     }
-  </style>
 
-  <script>
-  </script>
+    img {
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+    }
+</style>
+
+<script>
+    /*我的思路
+     const img = document.querySelector('img');
+
+     //1.改变img的padding大小
+    const spaceInput = document.getElementById('spacing');
+    spaceInput.addEventListener('input', () => {
+        img.style.setProperty('padding', spaceInput.value + 'px');
+    });
+    //2.改变模糊度
+    const blurInput = document.getElementById('blur');
+    blurInput.addEventListener('input', () => {
+        img.style.setProperty('filter', 'blur('+blurInput.value + 'px)');
+    })
+    //3.改变背景颜色
+    const  baseInput = document.getElementById('base');
+    baseInput.addEventListener('input', () => {
+        img.style.setProperty('background', baseInput.value);
+    })
+    */
+    //改进的方案
+    const inputs = document.querySelectorAll('input');
+    function update() {
+        let ifPx = this.dataset.sizing || '';
+        document.documentElement.style.setProperty(`--${this.name}`,this.value + ifPx)
+    }
+    inputs.forEach((input) => input.addEventListener('input',update));
+</script>
 
 </body>
 </html>
