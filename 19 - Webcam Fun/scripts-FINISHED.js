@@ -51,7 +51,7 @@ function takePhoto() {
   link.innerHTML = `<img src="${data}" alt="Handsome Man" />`;
   strip.insertBefore(link, strip.firsChild);
 }
-
+//红色特效滤镜
 function redEffect(pixels) {
   for(let i = 0; i < pixels.data.length; i+=4) {
     pixels.data[i + 0] = pixels.data[i + 0] + 200; // RED
@@ -60,7 +60,7 @@ function redEffect(pixels) {
   }
   return pixels;
 }
-
+//rgb分离
 function rgbSplit(pixels) {
   for(let i = 0; i < pixels.data.length; i+=4) {
     pixels.data[i - 150] = pixels.data[i + 0]; // RED
@@ -69,7 +69,7 @@ function rgbSplit(pixels) {
   }
   return pixels;
 }
-
+//绿屏（部分消失）
 function greenScreen(pixels) {
   const levels = {};
 
