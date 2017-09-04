@@ -41,7 +41,7 @@
     items.push(item);
     populateList(items, itemsList);
     localStorage.setItem('items', JSON.stringify(items));
-    this.reset();
+    this.reset(); //重置input
   }
 
   function populateList(plates = [], platesList) {
