@@ -29,6 +29,7 @@
     </div>
 
 <script>
+  // 实例化一个语音对象，并获得页面上的各DOM元素
   const msg = new SpeechSynthesisUtterance();
   let voices = [];
   const voicesDropdown = document.querySelector('[name="voice"]');
@@ -36,7 +37,7 @@
   const speakButton = document.querySelector('#speak');
   const stopButton = document.querySelector('#stop');
   msg.text = document.querySelector('[name="text"]').value;
-
+  // 设置各种语言的下拉选择框
   function populateVoices() {
     voices = this.getVoices();
     voicesDropdown.innerHTML = voices
@@ -44,28 +45,31 @@
       .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
       .join('');
   }
-
+  // 设置当前语音的语言
   function setVoice() {
     msg.voice = voices.find(voice => voice.name === this.value);
     toggle();
   }
-
+  // 切换语音的播放和暂停
   function toggle(startOver = true) {
     speechSynthesis.cancel();
     if (startOver) {
       speechSynthesis.speak(msg);
     }
   }
-
+  // 设置语音的语速和语调
   function setOption() {
     console.log(this.name, this.value);
     msg[this.name] = this.value;
     toggle();
   }
-
+  // 监听语音对象的语言改变的事件
   speechSynthesis.addEventListener('voiceschanged', populateVoices);
+  // 当切换语言选择下拉菜单时被调用
   voicesDropdown.addEventListener('change', setVoice);
+  // 为语速和语调设置改变的事件监听
   options.forEach(option => option.addEventListener('change', setOption));
+  // 分别监听播放和暂停事件
   speakButton.addEventListener('click', toggle);
   stopButton.addEventListener('click', () => toggle(false));
 
