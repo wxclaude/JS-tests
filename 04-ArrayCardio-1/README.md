@@ -1,4 +1,4 @@
-### 主要考察了Array的几个基本方法：
+### 主要考察了Array的几个基本方法使用：
 > [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)、map、sort、[reduce](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce_clone)
 
 总结：
