@@ -4,6 +4,6 @@
 而这个挑战要实现的效果是，当在此页面完整输入了“暗号”（一串事先定义好的字符串）时，生成新的 Cornify 特效。
 
 ### 思路
-1.  指定可激发特效的字符串
-2.  监听并获取输入的字符
-3.  处理输入，在符合条件时，调用 cornify
+1.  指定可激发特效的字符串，初始化一个数组用于存放按过的键
+2.  监听并获取输入的字符，调用[`includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)判断是否已经包含
+3.  在符合条件时，调用 cornify
