@@ -1,4 +1,4 @@
-### JavaScript中的浅复制
+### JavaScript中的复制
 
 #### 一、数组
 
