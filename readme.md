@@ -7,7 +7,7 @@
 
 ## 目录
 1.  [按键敲鼓效果](https://wxclaude.github.io/vanilla-JavaScript-tests/01-DrumKit/)
-2.  [JS与CSS模拟时钟效果](https://wxclaude.github.io/vanilla-JavaScript-tests/02-Clock/)
+2.  [JS与CSS模拟时钟效果](https://wxclaude.github.io/vanilla-JavaScript-tests/02-Clock/index.html)
 3.  [JS动态改变CSS变量值](https://wxclaude.github.io/vanilla-JavaScript-tests/03-CSSVariables/)
 4.  Array的几个方法使用-1
 5.  [flex图片墙](https://wxclaude.github.io/vanilla-JavaScript-tests/05-FlexPanelGallery/)
